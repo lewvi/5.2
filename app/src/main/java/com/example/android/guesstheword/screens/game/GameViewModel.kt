@@ -59,8 +59,10 @@ class GameViewModel : ViewModel() {
     }
 
     private fun nextWord() {
-        if (!wordList.isEmpty()) {
-            //Select and remove a word from the list
+        if (wordList.isEmpty()) {
+            onGameFinish()
+        } else {
+            //Select and remove a _word from the list
             _word.value = wordList.removeAt(0)
         }
     }
@@ -78,5 +80,19 @@ class GameViewModel : ViewModel() {
     override fun onCleared() {
         super.onCleared()
         Timber.i("GameViewModel destroyed!")
+    }
+
+    // Event which triggers the end of the game
+    private val _eventGameFinish = MutableLiveData<Boolean>()
+    val eventGameFinish: LiveData<Boolean>
+        get() = _eventGameFinish
+
+    fun onGameFinish() {
+        _eventGameFinish.value = true
+
+    }
+
+    fun onGameFinishComplete() {
+        _eventGameFinish.value = false
     }
 }
