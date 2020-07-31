@@ -65,6 +65,7 @@ class GameFragment : Fragment() {
         binding.skipButton.setOnClickListener { onSkip() }
         binding.endGameButton.setOnClickListener { onEndGame() }
 
+        binding.gameViewModel = viewModel
 
         return binding.root
 

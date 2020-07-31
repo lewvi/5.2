@@ -59,6 +59,8 @@ class ScoreFragment : Fragment() {
             binding.scoreText.text = newScore.toString()
         })
 
+        binding.scoreViewModel = viewModel
+
         // Navigates back to game when button is pressed
         viewModel.eventPlayAgain.observe(viewLifecycleOwner, Observer { playAgain ->
             if (playAgain) {
