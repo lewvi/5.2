@@ -77,7 +77,7 @@ class GameFragment : Fragment() {
 
     private fun onCorrect() {
         viewModel.onCorrect()
-        
+
     }
 
     private fun onEndGame() {
